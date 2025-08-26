@@ -12,7 +12,7 @@
       width: 100%;
       height: 100vh;
     }
-    
+
     .pannellum-hotspot .pnlm-hotspot-inner {
       width: 100px !important;       /* largura da área clicável */
       height: 100px !important;      /* altura da área clicável */
@@ -85,7 +85,7 @@
         "onibus-eventos": {
           "title": "Auditórios ou seguir",
           "panorama": "./imgs/onibus_eventos.jpeg",
-          "yaw": 180,
+          "yaw": 125,
           "hotSpots": [
             {
               "pitch": -5, "yaw": -7,
@@ -103,7 +103,7 @@
               "pitch": -5, "yaw": 170,
               "type": "scene",
               "text": "Próximo",
-              "sceneId": "corredor bloco 12"
+              "sceneId": "corredor bloco 12 quiosque"
             }
           ]
         },
@@ -170,7 +170,7 @@
         },
         "divisao cesar lattes": {
           "title": "Auditórios",
-          "yaw": 90,
+          "yaw": 180,
           "panorama": "./imgs/corredor_cesar_lattes.jpeg",
           "hotSpots": [
             {
@@ -213,9 +213,9 @@
             }
           ]
         },
-        "corredor bloco 12": {
+        "corredor bloco 12 quiosque": {
           "title": "Corredor bloco 12",
-          "yaw": 180,
+          "yaw": 135,
           "panorama": "./imgs/bloco 12 quiosque.jpeg",
           "hotSpots": [
             {
@@ -229,7 +229,33 @@
               "type": "scene",
               "text": "Seguir",
               "sceneId": "quiosque"
+            },
+            {
+              "pitch": -5, "yaw": 90,
+              "type": "scene",
+              "text": "Bloco 12",
+              "sceneId": "corredor entrada bloco 12"
             }
+          ]
+        },
+        "corredor entrada bloco 12": {
+          "title": "bloco 12",
+          "panorama": "./imgs/metade corredor bloco 12.jpeg",
+          "yaw": 180,
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "corredor bloco 12 quiosque"
+            },
+            {
+              "pitch": -5, "yaw": 178,
+              "type": "scene",
+              "text": "Entrar Bloco 12",
+              "sceneId": "bloco 12"
+            },
+            
           ]
         },
         "quiosque": {
@@ -240,8 +266,33 @@
             {
               "pitch": -5, "yaw": -3,
               "type": "scene",
+              "text": "Seguir",
+              "sceneId": "quiosque bloco 7"
+            },
+            {
+              "pitch": -5, "yaw": 120,
+              "type": "scene",
               "text": "Voltar",
-              "sceneId": "onibus-eventos"
+              "sceneId": "corredor bloco 12 quiosque"
+            }
+          ]
+        },
+        "bloco 12": {
+          "title": "bloco 12",
+          "yaw": -180,
+          "panorama": "./imgs/bloco 11 bloco 12.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Bloco 11",
+              "sceneId": ""
+            },
+            {
+              "pitch": -5, "yaw": -170,
+              "type": "scene",
+              "text": "Bloco 12",
+              "sceneId": "corredor bloco 12"
             }
           ]
         }
