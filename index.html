@@ -74,6 +74,7 @@
         "onibus-eventos": {
           "title": "Auditórios ou seguir",
           "panorama": "./imgs/onibus_eventos.jpeg",
+          "yaw": 180,
           "hotSpots": [
             {
               "pitch": -5, "yaw": -7,
@@ -158,6 +159,7 @@
         },
         "divisao cesar lattes": {
           "title": "Auditórios",
+          "yaw": 90,
           "panorama": "./imgs/corredor_cesar_lattes.jpeg",
           "hotSpots": [
             {
@@ -178,6 +180,7 @@
         "florestan": {
           "title": "Auditórios",
           "panorama": "./imgs/florestan.jpeg",
+          "yaw":180,
           "hotSpots": [
             {
               "pitch": -5, "yaw": 0,
@@ -201,13 +204,33 @@
         },
         "corredor bloco 12": {
           "title": "Corredor bloco 12",
+          "yaw": 180,
           "panorama": "./imgs/bloco 12 quiosque.jpeg",
           "hotSpots": [
             {
-              "pitch": -5, "yaw": 180,
+              "pitch": -5, "yaw": -3,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "divisao cesar lattes"
+              "sceneId": "onibus-eventos"
+            },
+            {
+              "pitch": -5, "yaw": 178,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "quiosque"
+            }
+          ]
+        },
+        "quiosque": {
+          "title": "quiosque",
+          "yaw": 0,
+          "panorama": "./imgs/centro quiosque.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "onibus-eventos"
             }
           ]
         }
