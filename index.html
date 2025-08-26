@@ -12,22 +12,14 @@
       width: 100%;
       height: 100vh;
     }
-
-    /* Aumenta os hotspots para mobile */
-    .pannellum-hotspot {
-      width: 50px !important;
-      height: 50px !important;
-      min-width: 50px;
-      min-height: 50px;
-    }
-
-    /* Exemplo para usar ícone customizado se quiser */
-    .hotspot-grande .pnlm-hotspot-inner {
-      width: 60px;
-      height: 60px;
-      background-image: url('imgs/seta.png'); /* seu ícone maior opcional */
-      background-size: contain;
-      background-repeat: no-repeat;
+    .pannellum-hotspot .pnlm-hotspot-inner {
+      width: 100px !important;       /* largura da área clicável */
+      height: 100px !important;      /* altura da área clicável */
+      min-width: 100px !important;
+      min-height: 100px !important;
+      border-radius: 50%;            /* mantém o círculo */
+      background-color: rgba(255,0,0,0.2); /* opcional, só para ver a área */
+      cursor: pointer;
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
@@ -46,7 +38,7 @@
         "author": "Gustavo Neves",
         "sceneFadeDuration": 1000,
         "autoLoad": true,
-        "hotSpotDebug": true   // 👈 mudar para false na versão final
+        "hotSpotDebug": true   // 👈 muda para false quando finalizar
       },
 
       "scenes": {
@@ -58,8 +50,7 @@
               "pitch": -10, "yaw": 0,
               "type": "scene",
               "text": "Próxima",
-              "sceneId": "onibus-aguas-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "onibus-aguas-eventos"
             }
           ]
         },
@@ -72,8 +63,7 @@
               "pitch": -10, "yaw": -5,
               "type": "scene",
               "text": "Próxima",
-              "sceneId": "onibus-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "onibus-eventos"
             },
             {
               "pitch": -10, "yaw": 85,
@@ -85,13 +75,11 @@
               "pitch": -10, "yaw": 180,
               "type": "scene",
               "text": "Voltar para o ponto de ônibus",
-              "sceneId": "entrada",
-              "cssClass": "hotspot-grande"
+              "sceneId": "entrada"
             }
           ]
         },
 
-        // Restante das cenas permanece igual, apenas adicionando 'cssClass': 'hotspot-grande'
         "onibus-eventos": {
           "title": "Auditórios ou seguir",
           "panorama": "./imgs/onibus_eventos.jpeg",
@@ -101,26 +89,22 @@
               "pitch": -5, "yaw": -7,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "onibus-aguas-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "onibus-aguas-eventos"
             },
             {
               "pitch": -5, "yaw": 80,
               "type": "scene",
               "text": "Eventos",
-              "sceneId": "Porta-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "Porta-eventos"
             },
             {
               "pitch": -5, "yaw": 170,
               "type": "scene",
               "text": "Próximo",
-              "sceneId": "corredor bloco 12",
-              "cssClass": "hotspot-grande"
+              "sceneId": "corredor bloco 12"
             }
           ]
         },
-
         "Porta-eventos": {
           "title": "Auditórios",
           "panorama": "./imgs/Portaeventos.jpeg",
@@ -129,19 +113,16 @@
               "pitch": -5, "yaw": -7,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "entrada-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "entrada-eventos"
             },
             {
               "pitch": -5, "yaw": 160,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "onibus-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "onibus-eventos"
             }
           ]
         },
-
         "entrada-eventos": {
           "title": "Auditórios",
           "panorama": "./imgs/entrada_eventos.jpeg",
@@ -150,20 +131,16 @@
               "pitch": -5, "yaw": -15,
               "type": "scene",
               "text": "Seguir",
-              "sceneId": "entrada-florestan",
-              "cssClass": "hotspot-grande"
+              "sceneId": "entrada-florestan"
             },
             {
               "pitch": -18, "yaw": 80,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "Porta-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "Porta-eventos"
             }
           ]
         },
-
-        // Continue adicionando 'cssClass': 'hotspot-grande' em todos os hotspots restantes
         "entrada-florestan": {
           "title": "Auditórios",
           "panorama": "./imgs/entrada_florestan.jpeg",
@@ -172,27 +149,101 @@
               "pitch": -5, "yaw": 0,
               "type": "scene",
               "text": "Seguir",
-              "sceneId": "divisao cesar lattes",
-              "cssClass": "hotspot-grande"
+              "sceneId": "divisao cesar lattes"
             },
             {
               "pitch": -18, "yaw": 180,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "entrada-eventos",
-              "cssClass": "hotspot-grande"
+              "sceneId": "entrada-eventos"
             },
             {
               "pitch": -18, "yaw": -90,
               "type": "scene",
               "text": "Florestan",
-              "sceneId": "florestan",
-              "cssClass": "hotspot-grande"
+              "sceneId": "florestan"
+            }
+
+          ]
+        },
+        "divisao cesar lattes": {
+          "title": "Auditórios",
+          "yaw": 90,
+          "panorama": "./imgs/corredor_cesar_lattes.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 175,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "cesar lattes"
+            },
+            {
+              "pitch": -18, "yaw": -95,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "entrada-florestan"
+            },
+
+          ]
+        },
+        "florestan": {
+          "title": "Auditórios",
+          "panorama": "./imgs/florestan.jpeg",
+          "yaw":180,
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 0,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "entrada-florestan"
+            }
+          ]
+        },
+        "cesar lattes": {
+          "title": "Auditórios",
+          "panorama": "./imgs/Cesar_lattes.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 180,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "divisao cesar lattes"
+            }
+          ]
+        },
+        "corredor bloco 12": {
+          "title": "Corredor bloco 12",
+          "yaw": 180,
+          "panorama": "./imgs/bloco 12 quiosque.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "onibus-eventos"
+            },
+            {
+              "pitch": -5, "yaw": 178,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "quiosque"
+            }
+          ]
+        },
+        "quiosque": {
+          "title": "quiosque",
+          "yaw": 0,
+          "panorama": "./imgs/centro quiosque.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "onibus-eventos"
             }
           ]
         }
 
-        // Continue fazendo o mesmo para todas as outras cenas...
       }
     });
 
