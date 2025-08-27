@@ -31,7 +31,7 @@
 
   <script>
     // Recupera a última cena visitada ou usa 'entrada' como padrão
-    const ultimaCena = localStorage.getItem('ultimaCena') || 'entrada';
+    const ultimaCena = localStorage.getItem('ultimaCena') ||'entrada';
 
     const viewer = pannellum.viewer('panorama', {
       "default": {
@@ -264,7 +264,7 @@
           "panorama": "./imgs/centro quiosque.jpeg",
           "hotSpots": [
             {
-              "pitch": -5, "yaw": -3,
+              "pitch": -5, "yaw":0,
               "type": "scene",
               "text": "Seguir",
               "sceneId": "quiosque bloco 7"
@@ -295,7 +295,84 @@
               "sceneId": "corredor bloco 12"
             }
           ]
-        }
+        },
+        "quiosque bloco 7": {
+          "title": "bloco 7",
+          "yaw": -140,
+          "panorama": "./imgs/quiosque bloco 7.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "quiosque"
+            },
+            {
+              "pitch": -5, "yaw": -95,
+              "type": "scene",
+              "text": "Bloco 7",
+              "sceneId": "bloco 7"
+            },
+            {
+              "pitch": -5, "yaw": -185,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": ""
+            }
+          ]
+        },
+        "bloco 7": {
+          "title": "bloco 7",
+          "yaw": -170,
+          "panorama": "./imgs/bloco 7 fundos.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":0,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "quiosque bloco 7"
+            },
+            {
+              "pitch": -5, "yaw": -178,
+              "type": "scene",
+              "text": "Próximo",
+              "sceneId": "bloco 7 2"
+            }
+          ]
+        },
+        "bloco 7 2": {
+          "title": "Bloco 7",
+          "yaw": -170,
+          "panorama": "./imgs/Bloco7.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":0,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "bloco 7"
+            },
+            {
+              "pitch": -5, "yaw": -178,
+              "type": "scene",
+              "text": "Sair",
+              "sceneId": "fora bloco 7"
+            }
+          ]
+        },
+        "fora bloco 7": {
+          "title": "fora Bloco 7",
+          "yaw": 10,
+          "panorama": "./imgs/fora bloco 7.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":10,
+              "type": "scene",
+              "text": "Entrar",
+              "sceneId": "bloco 7 2"
+            }
+          ]
+        },
+
 
       }
     });
