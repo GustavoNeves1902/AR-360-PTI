@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa 360 Itaipu - Debug Hotspots</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+    #panorama {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .pannellum-hotspot .pnlm-hotspot-inner {
+      width: 100px !important;       /* largura da área clicável */
+      height: 100px !important;      /* altura da área clicável */
+      min-width: 100px !important;
+      min-height: 100px !important;
+      border-radius: 50%;            /* mantém o círculo */
+      background-color: rgba(255,0,0,0.2); /* opcional, só para ver a área */
+      cursor: pointer;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+</head>
+<body>
+  <div id="panorama"></div>
+
+  <script>
+    // Recupera a última cena visitada ou usa 'entrada' como padrão
+    const ultimaCena =  'entrada';
+
+    const viewer = pannellum.viewer('panorama', {
+      "default": {
+        "firstScene": ultimaCena,
+        "author": "Gustavo Neves",
+        "sceneFadeDuration": 1000,
+        "autoLoad": true,
+        "hotSpotDebug": true,   // 👈 muda para false quando finalizar
+        "hfov": 100
+      },
+
+      "scenes": {
+        "entrada": {
+          "title": "Ponto de Ônibus",
+          "panorama": "./imgs/ponto_onibus_texto.png",
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": 0,
+              "type": "scene",
+              "text": "Próxima",
+              "sceneId": "onibus-aguas-eventos",
+              "scale": 5.0
+            }
+          ]
+        },
+
+        "onibus-aguas-eventos": {
+          "title": "Edifício das Águas / Espaço de Eventos",
+          "panorama": "./imgs/divisao_onibus-aguas-eventos-texto.jpg",
+          "yaw":40,
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -5,
+              "type": "scene",
+              "text": "Próxima",
+              "sceneId": "onibus-eventos"
+            },
+            {
+              "pitch": -10, "yaw": 85,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "blocos 8 e 9"
+            },
+            {
+              "pitch": -10, "yaw": 180,
+              "type": "scene",
+              "text": "Voltar para o ponto de ônibus",
+              "sceneId": "entrada"
+            }
+          ]
+        },
+        "blocos 8 e 9": {
+          "panorama": "./imgs/blocos 8 9 edificios das aguas.jpg",
+          "yaw":170,
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -8,
+              "type": "scene",
+              "text": "Voltar",
+              "targetYaw":-10,
+              "sceneId": "onibus-aguas-eventos"
+            },
+            {
+              "pitch": -10, "yaw": 172,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "blocos 3 e 4"
+            }
+          ]
+        },
+        "blocos 3 e 4": {
+          "panorama": "./imgs/blocos 3 4 edificio das aguas.jpeg",
+          "yaw":170,
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -8,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "blocos 8 e 9",
+              "targetYaw":-10
+            },
+            {
+              "pitch": -10, "yaw": 172,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "edificio das aguas"
+            }
+          ]
+        },
+        "edificio das aguas": {
+          "panorama": "./imgs/edificio das aguas.jpeg",
+          "yaw":170,
+          "hfov":100,
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -20,
+              "type": "scene",
+              "text": "Voltar",
+              "targetYaw":-10,
+              "targetHfov": 100,
+              "sceneId": "blocos 3 e 4"
+            }
+          ]
+        },
+        
+
+        "onibus-eventos": {
+          "title": "Auditórios ou seguir",
+          "panorama": "./imgs/onibus_eventos_texto.jpg",
+          "yaw": 125,
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -7,
+              "type": "scene",
+              "text": "Voltar",
+              "targetYaw":170,
+              "sceneId": "onibus-aguas-eventos"
+            },
+            {
+              "pitch": -5, "yaw": 80,
+              "type": "scene",
+              "text": "Eventos",
+              "sceneId": "entrada-eventos"
+            },
+            {
+              "pitch": -5, "yaw": 170,
+              "type": "scene",
+              "text": "Próximo",
+              "sceneId": "onibus-bloco7 fundos"
+            }
+          ]
+        },
+        "onibus-bloco7 fundos": {
+          "title": "Auditórios ou seguir",
+          "panorama": "./imgs/bloco7fundos_quiosque.jpeg",
+          "yaw": 40,
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 0,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "corredor bloco 12 quiosque"
+            },
+            {
+              "pitch": -5, "yaw": 80,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "fora bloco 7"
+            },
+            {
+              "pitch": -5, "yaw": 180,
+              "type": "scene",
+              "text": "Voltar",
+              "targetYaw":-10,
+              "sceneId": "onibus-eventos"
+            }
+          ]
+        },
+        
+        "entrada-eventos": {
+          "title": "Auditórios",
+          "panorama": "./imgs/entrada_eventos.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -15,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "entrada-florestan"
+            },
+            {
+              "pitch": -18, "yaw": 80,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "onibus-eventos"
+            }
+          ]
+        },
+        "entrada-florestan": {
+          "title": "Auditórios",
+          "panorama": "./imgs/entrada_florestan.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 0,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "divisao cesar lattes"
+            },
+            {
+              "pitch": -18, "yaw": 180,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "entrada-eventos"
+            },
+            {
+              "pitch": -18, "yaw": -90,
+              "type": "scene",
+              "text": "Florestan",
+              "sceneId": "florestan"
+            }
+
+          ]
+        },
+        "divisao cesar lattes": {
+          "title": "Auditórios",
+          "yaw": 180,
+          "panorama": "./imgs/corredor_cesar_lattes.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 175,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "cesar lattes"
+            },
+            {
+              "pitch": -18, "yaw": -95,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "entrada-florestan"
+            },
+            {
+              "pitch": -20, "yaw": 80,
+              "type": "scene",
+              "text": "Bloco 12 - precisa editar ainda",
+              "sceneId": "#"
+            }
+
+          ]
+        },
+        "florestan": {
+          "title": "Auditórios",
+          "panorama": "./imgs/florestan.jpg",
+          "yaw":230,
+          "hfov":800,
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 0,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "entrada-florestan"
+            }
+          ]
+        },
+        "cesar lattes": {
+          "title": "Auditórios",
+          "panorama": "./imgs/Cesar_lattes.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 180,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "divisao cesar lattes"
+            }
+          ]
+        },
+        "corredor bloco 12 quiosque": {
+          "title": "Corredor bloco 12",
+          "yaw": 135,
+          "hfov":300,
+          "panorama": "./imgs/bloco 12 quiosque.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Voltar",
+              "targetYaw":180,
+              "sceneId": "onibus-bloco7 fundos"
+            },
+            {
+              "pitch": -5, "yaw": 178,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "quiosque"
+            },
+            {
+              "pitch": -5, "yaw": 90,
+              "type": "scene",
+              "text": "Bloco 12",
+              "sceneId": "bloco 12"
+            }
+          ]
+        },
+        "quiosque": {
+          "title": "quiosque",
+          "yaw": 0,
+          "panorama": "./imgs/centro quiosque.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":0,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "quiosque bloco 7"
+            },
+            {
+              "pitch": -15, "yaw": 120,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "corredor bloco 12 quiosque",
+              "targetYaw":0,
+            }
+          ]
+        },
+        "bloco 12": {
+          "title": "bloco 12",
+          "yaw": -180,
+          "panorama": "./imgs/bloco 11 bloco 12.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Bloco 11",
+              "sceneId": ""
+            },
+            {
+              "pitch": -5, "yaw": -175,
+              "type": "scene",
+              "text": "Bloco 12",
+              "sceneId": "corredor bloco 12"
+            },
+            {
+              "pitch": -5, "yaw": 100,
+              "type": "scene",
+              "text": "Sair",
+              "sceneId": "corredor bloco 12 quiosque"
+            }
+          ]
+        },
+        "quiosque bloco 7": {
+          "title": "bloco 7",
+          "yaw": -140,
+          "hvof":600,
+          "panorama": "./imgs/quiosque bloco 7.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -3,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "quiosque",
+              "targetYaw":120,
+            },
+            {
+              "pitch": -20, "yaw": -95,
+              "type": "scene",
+              "text": "Bloco 7",
+              "sceneId": "bloco 7"
+            },
+            {
+              "pitch": -10, "yaw": -185,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "quiosque biblioteca lanchonete"
+            }
+          ]
+        },
+        "bloco 7": {
+          "title": "bloco 7",
+          "yaw": -170,
+          "panorama": "./imgs/bloco 7 fundos.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":-10,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "quiosque bloco 7"
+            },
+            {
+              "pitch": -5, "yaw": -178,
+              "type": "scene",
+              "text": "Próximo",
+              "sceneId": "bloco 7 2"
+            }
+          ]
+        },
+        "bloco 7 2": {
+          "title": "Bloco 7",
+          "yaw": -170,
+          "panorama": "./imgs/Bloco7.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":0,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "bloco 7"
+            },
+            {
+              "pitch": -5, "yaw": -178,
+              "type": "scene",
+              "text": "Sair",
+              "sceneId": "fora bloco 7"
+            }
+          ]
+        },
+        "fora bloco 7": {
+          "title": "fora Bloco 7",
+          "yaw": 10,
+          "panorama": "./imgs/fora bloco 7.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":10,
+              "type": "scene",
+              "text": "Entrar",
+              "sceneId": "bloco 7 2"
+            },
+            {
+              "pitch": -5, "yaw":-80,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "onibus-bloco7 fundos"
+            }
+          ]
+        },
+        "quiosque biblioteca lanchonete": {
+          "title": "fora Bloco 7",
+          "yaw": -55,
+          "hvof":100,
+          "panorama": "./imgs/restaurante biblioteca.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":-10,
+              "type": "scene",
+              "text": "Lanchonete",
+              "sceneId": "porta lanchonete"
+            },
+            {
+              "pitch": -5, "yaw":-100,
+              "type": "scene",
+              "text": "Biblioteca precisa mexer",
+              "sceneId": ""
+            },
+            {
+              "pitch": -5, "yaw":-190,
+              "type": "scene",
+              "text": "voltar",
+              "targetYaw": 0,
+              "sceneId": "quiosque bloco 7"
+            }
+
+          ]
+        },
+        "porta lanchonete": {
+          "title": "fora Bloco 7",
+          "panorama": "./imgs/porta_lanchonete.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":175,
+              "type": "scene",
+              "text": "Voltar",
+              "targetYaw":180,
+              "sceneId": "quiosque biblioteca lanchonete"
+            }
+          ]
+        }
+
+
+      }
+    });
+
+    // Salva a cena atual sempre que o usuário muda
+    viewer.on('scenechange', function(sceneId) {
+      localStorage.setItem('ultimaCena', sceneId);
+    });
+
+  </script>
+</body>
+</html>
