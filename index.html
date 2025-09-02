@@ -31,7 +31,7 @@
 
   <script>
     // Recupera a última cena visitada ou usa 'entrada' como padrão
-    const ultimaCena = localStorage.getItem('ultimaCena') ||'entrada';
+    const ultimaCena =  localStorage.getItem('ultimaCena') ||'entrada';
 
     const viewer = pannellum.viewer('panorama', {
       "default": {
@@ -71,8 +71,8 @@
             {
               "pitch": -10, "yaw": 85,
               "type": "scene",
-              "text": "Precisa Mexer ainda",
-              "sceneId": ""
+              "text": "Seguir",
+              "sceneId": "blocos 8 e 9"
             },
             {
               "pitch": -10, "yaw": 180,
@@ -82,6 +82,55 @@
             }
           ]
         },
+        "blocos 8 e 9": {
+          "panorama": "./imgs/blocos 8 9 edificios das aguas.jpg",
+          "yaw":170,
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -8,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "onibus-aguas-eventos"
+            },
+            {
+              "pitch": -10, "yaw": 172,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "blocos 3 e 4"
+            }
+          ]
+        },
+        "blocos 3 e 4": {
+          "panorama": "./imgs/blocos 3 4 edificio das aguas.jpeg",
+          "yaw":170,
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -8,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "blocos 8 e 9"
+            },
+            {
+              "pitch": -10, "yaw": 172,
+              "type": "scene",
+              "text": "Seguir",
+              "sceneId": "edificio das aguas"
+            }
+          ]
+        },
+        "edificio das aguas": {
+          "panorama": "./imgs/edificio das aguas.jpeg",
+          "yaw":170,
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -20,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "blocos 3 e 4"
+            }
+          ]
+        },
+        
 
         "onibus-eventos": {
           "title": "Auditórios ou seguir",
@@ -206,7 +255,7 @@
         "florestan": {
           "title": "Auditórios",
           "panorama": "./imgs/florestan.jpg",
-          "yaw":180,
+          "yaw":230,
           "hotSpots": [
             {
               "pitch": -5, "yaw": 0,
@@ -395,7 +444,14 @@
               "type": "scene",
               "text": "Biblioteca precisa mexer",
               "sceneId": ""
+            },
+            {
+              "pitch": -5, "yaw":-190,
+              "type": "scene",
+              "text": "voltar",
+              "sceneId": "quiosque bloco 7"
             }
+
           ]
         },
         "porta lanchonete": {
