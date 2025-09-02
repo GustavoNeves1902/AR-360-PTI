@@ -31,7 +31,7 @@
 
   <script>
     // Recupera a última cena visitada ou usa 'entrada' como padrão
-    const ultimaCena =  localStorage.getItem('ultimaCena') ||'entrada';
+    const ultimaCena =   localStorage.getItem('ultimaCena') ||'entrada';
 
     const viewer = pannellum.viewer('panorama', {
       "default": {
@@ -39,7 +39,8 @@
         "author": "Gustavo Neves",
         "sceneFadeDuration": 1000,
         "autoLoad": true,
-        "hotSpotDebug": true   // 👈 muda para false quando finalizar
+        "hotSpotDebug": true,   // 👈 muda para false quando finalizar
+        "hfov": 100
       },
 
       "scenes": {
@@ -90,6 +91,7 @@
               "pitch": -10, "yaw": -8,
               "type": "scene",
               "text": "Voltar",
+              "targetYaw":-10,
               "sceneId": "onibus-aguas-eventos"
             },
             {
@@ -108,7 +110,8 @@
               "pitch": -10, "yaw": -8,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "blocos 8 e 9"
+              "sceneId": "blocos 8 e 9",
+              "targetYaw":-10
             },
             {
               "pitch": -10, "yaw": 172,
@@ -121,11 +124,14 @@
         "edificio das aguas": {
           "panorama": "./imgs/edificio das aguas.jpeg",
           "yaw":170,
+          "hfov":100,
           "hotSpots": [
             {
               "pitch": -10, "yaw": -20,
               "type": "scene",
               "text": "Voltar",
+              "targetYaw":-10,
+              "targetHfov": 100,
               "sceneId": "blocos 3 e 4"
             }
           ]
@@ -141,6 +147,7 @@
               "pitch": -5, "yaw": -7,
               "type": "scene",
               "text": "Voltar",
+              "targetYaw":170,
               "sceneId": "onibus-aguas-eventos"
             },
             {
@@ -177,7 +184,8 @@
             {
               "pitch": -5, "yaw": 180,
               "type": "scene",
-              "text": "Seguir",
+              "text": "Voltar",
+              "targetYaw":-10,
               "sceneId": "onibus-eventos"
             }
           ]
@@ -215,7 +223,7 @@
               "pitch": -18, "yaw": 180,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "Porta-eventos"
+              "sceneId": "entrada-eventos"
             },
             {
               "pitch": -18, "yaw": -90,
@@ -256,6 +264,7 @@
           "title": "Auditórios",
           "panorama": "./imgs/florestan.jpg",
           "yaw":230,
+          "hfov":800,
           "hotSpots": [
             {
               "pitch": -5, "yaw": 0,
@@ -280,12 +289,14 @@
         "corredor bloco 12 quiosque": {
           "title": "Corredor bloco 12",
           "yaw": 135,
+          "hfov":300,
           "panorama": "./imgs/bloco 12 quiosque.jpg",
           "hotSpots": [
             {
               "pitch": -5, "yaw": -3,
               "type": "scene",
               "text": "Voltar",
+              "targetYaw":180,
               "sceneId": "onibus-bloco7 fundos"
             },
             {
@@ -314,10 +325,11 @@
               "sceneId": "quiosque bloco 7"
             },
             {
-              "pitch": -5, "yaw": 120,
+              "pitch": -15, "yaw": 120,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "corredor bloco 12 quiosque"
+              "sceneId": "corredor bloco 12 quiosque",
+              "targetYaw":0,
             }
           ]
         },
@@ -349,13 +361,15 @@
         "quiosque bloco 7": {
           "title": "bloco 7",
           "yaw": -140,
+          "hvof":600,
           "panorama": "./imgs/quiosque bloco 7.jpg",
           "hotSpots": [
             {
               "pitch": -5, "yaw": -3,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "quiosque"
+              "sceneId": "quiosque",
+              "targetYaw":120,
             },
             {
               "pitch": -20, "yaw": -95,
@@ -431,6 +445,7 @@
         "quiosque biblioteca lanchonete": {
           "title": "fora Bloco 7",
           "yaw": -55,
+          "hvof":100,
           "panorama": "./imgs/restaurante biblioteca.jpeg",
           "hotSpots": [
             {
@@ -449,6 +464,7 @@
               "pitch": -5, "yaw":-190,
               "type": "scene",
               "text": "voltar",
+              "targetYaw": 0,
               "sceneId": "quiosque bloco 7"
             }
 
@@ -462,6 +478,7 @@
               "pitch": -5, "yaw":175,
               "type": "scene",
               "text": "Voltar",
+              "targetYaw":180,
               "sceneId": "quiosque biblioteca lanchonete"
             }
           ]
