@@ -98,7 +98,7 @@
               "pitch": -5, "yaw": 80,
               "type": "scene",
               "text": "Eventos",
-              "sceneId": "Porta-eventos"
+              "sceneId": "entrada-eventos"
             },
             {
               "pitch": -5, "yaw": 170,
@@ -133,24 +133,7 @@
             }
           ]
         },
-        "Porta-eventos": {
-          "title": "Auditórios",
-          "panorama": "./imgs/Portaeventos.jpg",
-          "hotSpots": [
-            {
-              "pitch": -5, "yaw": -7,
-              "type": "scene",
-              "text": "Entrar",
-              "sceneId": "entrada-eventos"
-            },
-            {
-              "pitch": -5, "yaw": 160,
-              "type": "scene",
-              "text": "Voltar",
-              "sceneId": "onibus-eventos"
-            }
-          ]
-        },
+        
         "entrada-eventos": {
           "title": "Auditórios",
           "panorama": "./imgs/entrada_eventos.jpg",
@@ -165,7 +148,7 @@
               "pitch": -18, "yaw": 80,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "Porta-eventos"
+              "sceneId": "onibus-eventos"
             }
           ]
         },
@@ -215,7 +198,7 @@
               "pitch": -20, "yaw": 80,
               "type": "scene",
               "text": "Bloco 12 - precisa editar ainda",
-              "sceneId": "cesarlattes_bloco12"
+              "sceneId": "#"
             }
 
           ]
@@ -266,28 +249,8 @@
               "pitch": -5, "yaw": 90,
               "type": "scene",
               "text": "Bloco 12",
-              "sceneId": "corredor entrada bloco 12"
-            }
-          ]
-        },
-        "corredor entrada bloco 12": {
-          "title": "bloco 12",
-          "panorama": "./imgs/metade corredor bloco 12.jpeg",
-          "yaw": 180,
-          "hotSpots": [
-            {
-              "pitch": -5, "yaw": -3,
-              "type": "scene",
-              "text": "Voltar",
-              "sceneId": "corredor bloco 12 quiosque"
-            },
-            {
-              "pitch": -5, "yaw": 178,
-              "type": "scene",
-              "text": "Entrar Bloco 12",
               "sceneId": "bloco 12"
-            },
-            
+            }
           ]
         },
         "quiosque": {
@@ -321,10 +284,16 @@
               "sceneId": ""
             },
             {
-              "pitch": -5, "yaw": -170,
+              "pitch": -5, "yaw": -175,
               "type": "scene",
               "text": "Bloco 12",
               "sceneId": "corredor bloco 12"
+            },
+            {
+              "pitch": -5, "yaw": 100,
+              "type": "scene",
+              "text": "Sair",
+              "sceneId": "corredor bloco 12 quiosque"
             }
           ]
         },
@@ -340,16 +309,16 @@
               "sceneId": "quiosque"
             },
             {
-              "pitch": -5, "yaw": -95,
+              "pitch": -20, "yaw": -95,
               "type": "scene",
               "text": "Bloco 7",
               "sceneId": "bloco 7"
             },
             {
-              "pitch": -5, "yaw": -185,
+              "pitch": -10, "yaw": -185,
               "type": "scene",
               "text": "Seguir",
-              "sceneId": ""
+              "sceneId": "quiosque biblioteca lanchonete"
             }
           ]
         },
@@ -410,6 +379,37 @@
             }
           ]
         },
+        "quiosque biblioteca lanchonete": {
+          "title": "fora Bloco 7",
+          "yaw": -55,
+          "panorama": "./imgs/restaurante biblioteca.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":-10,
+              "type": "scene",
+              "text": "Lanchonete",
+              "sceneId": "porta lanchonete"
+            },
+            {
+              "pitch": -5, "yaw":-100,
+              "type": "scene",
+              "text": "Biblioteca precisa mexer",
+              "sceneId": ""
+            }
+          ]
+        },
+        "porta lanchonete": {
+          "title": "fora Bloco 7",
+          "panorama": "./imgs/porta_lanchonete.jpeg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":175,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "quiosque biblioteca lanchonete"
+            }
+          ]
+        }
 
 
       }
