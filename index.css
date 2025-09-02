@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.678);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.ancora{
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 800;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.ancora:hover{
+    transform: scale(1.2);
+}
+
+.imagem{
+    width: 10%;
+}
