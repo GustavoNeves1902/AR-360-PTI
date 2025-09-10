@@ -14,12 +14,12 @@
     }
 
     .pannellum-hotspot .pnlm-hotspot-inner {
-      width: 100px !important;       /* largura da área clicável */
-      height: 100px !important;      /* altura da área clicável */
-      min-width: 100px !important;
-      min-height: 100px !important;
+      width: 500px !important;       /* largura da área clicável */
+      height: 500px !important;      /* altura da área clicável */
+      min-width: 500px !important;
+      min-height: 500px !important;
       border-radius: 50%;            /* mantém o círculo */
-      background-color: rgba(255,0,0,0.2); /* opcional, só para ver a área */
+      background-color: rgba(255, 0, 0, 0.6); /* opcional, só para ver a área */
       cursor: pointer;
     }
     /* Mini-mapa */
@@ -68,7 +68,7 @@
 
     <!-- Pontos clicáveis -->
     <div class="ponto" data-scene="entrada" style="left:264px; top:40px;"></div>
-    <div class="ponto" data-scene="edificio das aguas" style="left:60px; top:94px;"></div>
+    <div class="ponto" data-scene="edificio das aguas" style="left:60px; top:80px;"></div>
     <div class="ponto" data-scene="entrada-eventos" style="left:300px; top:100px;"></div>
     <div class="ponto" data-scene="bloco 12" style="left:330px; top:180px;"></div>
     <div class="ponto" data-scene="quiosque" style="left:265px; top:225px;"></div>
@@ -111,18 +111,22 @@
               "pitch": -10, "yaw": -5,
               "type": "scene",
               "text": "Próxima",
-              "sceneId": "onibus-eventos"
+              "sceneId": "onibus-eventos",
+              "scale": 5.0
             },
             {
               "pitch": -10, "yaw": 85,
               "type": "scene",
               "text": "Seguir",
+              "scale": 10.0,
+              "scale": 5.0,
               "sceneId": "blocos 8 e 9"
             },
             {
               "pitch": -10, "yaw": 180,
               "type": "scene",
               "text": "Voltar para o ponto de ônibus",
+              "scale": 5.0,
               "sceneId": "entrada"
             }
           ]
@@ -136,12 +140,14 @@
               "type": "scene",
               "text": "Voltar",
               "targetYaw":-10,
+              "scale": 5.0,
               "sceneId": "onibus-aguas-eventos"
             },
             {
               "pitch": -10, "yaw": 172,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "blocos 3 e 4"
             }
           ]
@@ -155,12 +161,14 @@
               "type": "scene",
               "text": "Voltar",
               "sceneId": "blocos 8 e 9",
+              "scale": 5.0,
               "targetYaw":-10
             },
             {
               "pitch": -10, "yaw": 172,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "edificio das aguas"
             }
           ]
@@ -176,6 +184,7 @@
               "text": "Voltar",
               "targetYaw":-10,
               "targetHfov": 100,
+              "scale": 5.0,
               "sceneId": "blocos 3 e 4"
             }
           ]
@@ -191,18 +200,21 @@
               "type": "scene",
               "text": "Voltar",
               "targetYaw":170,
+              "scale": 5.0,
               "sceneId": "onibus-aguas-eventos"
             },
             {
               "pitch": -5, "yaw": 80,
               "type": "scene",
               "text": "Eventos",
+              "scale": 5.0,
               "sceneId": "entrada-eventos"
             },
             {
               "pitch": -5, "yaw": 170,
               "type": "scene",
               "text": "Próximo",
+              "scale": 5.0,
               "sceneId": "onibus-bloco7 fundos"
             }
           ]
@@ -215,12 +227,14 @@
               "pitch": -5, "yaw": 0,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "corredor bloco 12 quiosque"
             },
             {
               "pitch": -5, "yaw": 80,
               "type": "scene",
               "text": "Voltar",
+              "scale": 5.0,
               "sceneId": "fora bloco 7"
             },
             {
@@ -228,6 +242,7 @@
               "type": "scene",
               "text": "Voltar",
               "targetYaw":-10,
+              "scale": 5.0,
               "sceneId": "onibus-eventos"
             }
           ]
@@ -241,18 +256,21 @@
               "pitch": -5, "yaw": -20,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": ""
             },
             {
               "pitch": -5, "yaw": -80,
               "type": "scene",
               "text": "LabMaker",
+              "scale": 5.0,
               "sceneId": "entrada-florestan"
             },
             {
               "pitch": -18, "yaw": 80,
               "type": "scene",
               "text": "Voltar",
+              "scale": 5.0,
               "sceneId": "onibus-eventos"
             }
           ]
@@ -264,18 +282,21 @@
               "pitch": -5, "yaw": 0,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "divisao cesar lattes",
             },
             {
               "pitch": -18, "yaw": 180,
               "type": "scene",
               "text": "Voltar",
+              "scale": 5.0,
               "sceneId": "entrada-eventos"
             },
             {
               "pitch": -18, "yaw": -90,
               "type": "scene",
               "text": "Florestan",
+              "scale": 5.0,
               "sceneId": "florestan"
             }
 
@@ -289,6 +310,7 @@
               "pitch": -5, "yaw": 170,
               "type": "scene",
               "text": "Entrar",
+              "scale": 5.0,
               "sceneId": "cesar lattes"
             },
             {
@@ -296,12 +318,14 @@
               "type": "scene",
               "text": "Voltar",
               "targetYaw":180,
+              "scale": 5.0,
               "sceneId": "entrada-florestan"
             },
             {
               "pitch": -20, "yaw": 85,
               "type": "scene",
               "text": "Bloco 12 - precisa editar ainda",
+              "scale": 5.0,
               "sceneId": "#"
             }
 
@@ -316,6 +340,7 @@
               "pitch": -5, "yaw": 0,
               "type": "scene",
               "text": "Voltar",
+              "scale": 5.0,
               "sceneId": "entrada-florestan"
             }
           ]
@@ -327,6 +352,7 @@
               "pitch": -5, "yaw": 180,
               "type": "scene",
               "text": "Voltar",
+              "scale": 5.0,
               "sceneId": "divisao cesar lattes"
             }
           ]
@@ -341,18 +367,21 @@
               "type": "scene",
               "text": "Voltar",
               "targetYaw":180,
+              "scale": 5.0,
               "sceneId": "onibus-bloco7 fundos"
             },
             {
               "pitch": -5, "yaw": 178,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "quiosque"
             },
             {
               "pitch": -5, "yaw": 90,
               "type": "scene",
               "text": "Bloco 12",
+              "scale": 5.0,
               "sceneId": "bloco 12"
             }
           ]
@@ -365,12 +394,14 @@
               "pitch": -5, "yaw":0,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "quiosque bloco 7"
             },
             {
               "pitch": -15, "yaw": 120,
               "type": "scene",
               "text": "Voltar",
+              "scale": 5.0,
               "sceneId": "corredor bloco 12 quiosque",
               "targetYaw":0,
             }
@@ -384,18 +415,21 @@
               "pitch": -5, "yaw": -3,
               "type": "scene",
               "text": "Bloco 11",
+              "scale": 5.0,
               "sceneId": ""
             },
             {
               "pitch": -5, "yaw": -175,
               "type": "scene",
               "text": "Bloco 12",
+              "scale": 5.0,
               "sceneId": "corredor bloco 12"
             },
             {
               "pitch": -5, "yaw": 100,
               "type": "scene",
               "text": "Sair",
+              "scale": 5.0,
               "sceneId": "corredor bloco 12 quiosque"
             }
           ]
@@ -410,18 +444,21 @@
               "type": "scene",
               "text": "Voltar",
               "sceneId": "quiosque",
+              "scale": 5.0,
               "targetYaw":120,
             },
             {
               "pitch": -20, "yaw": -95,
               "type": "scene",
               "text": "Bloco 7",
+              "scale": 5.0,
               "sceneId": "bloco 7"
             },
             {
               "pitch": -10, "yaw": -185,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "quiosque biblioteca lanchonete"
             }
           ]
@@ -434,12 +471,14 @@
               "pitch": -5, "yaw":-10,
               "type": "scene",
               "text": "Voltar",
+              "scale": 5.0,
               "sceneId": "quiosque bloco 7"
             },
             {
               "pitch": -5, "yaw": -178,
               "type": "scene",
               "text": "Próximo",
+              "scale": 5.0,
               "sceneId": "bloco 7 2"
             }
           ]
@@ -453,12 +492,14 @@
               "type": "scene",
               "text": "Voltar",
               "sceneId": "bloco 7",
+              "scale": 5.0,
               "targetYaw":0,
             },
             {
               "pitch": -5, "yaw": -178,
               "type": "scene",
               "text": "Sair",
+              "scale": 5.0,
               "sceneId": "fora bloco 7"
             }
           ]
@@ -471,6 +512,7 @@
               "pitch": -5, "yaw":10,
               "type": "scene",
               "text": "Entrar",
+              "scale": 5.0,
               "sceneId": "bloco 7 2",
               "targetYaw": 0
             },
@@ -478,6 +520,7 @@
               "pitch": -5, "yaw":-80,
               "type": "scene",
               "text": "Seguir",
+              "scale": 5.0,
               "sceneId": "onibus-bloco7 fundos"
             }
           ]
@@ -491,12 +534,14 @@
               "pitch": -5, "yaw":-10,
               "type": "scene",
               "text": "Lanchonete",
+              "scale": 5.0,
               "sceneId": "porta lanchonete"
             },
             {
               "pitch": -5, "yaw":-100,
               "type": "scene",
               "text": "Biblioteca precisa mexer",
+              "scale": 5.0,
               "sceneId": ""
             },
             {
@@ -504,6 +549,7 @@
               "type": "scene",
               "text": "voltar",
               "targetYaw": 0,
+              "scale": 5.0,
               "sceneId": "quiosque bloco 7"
             }
 
@@ -517,6 +563,7 @@
               "type": "scene",
               "text": "Voltar",
               "targetYaw":180,
+              "scale": 5.0,
               "sceneId": "quiosque biblioteca lanchonete"
             }
           ]
@@ -545,7 +592,7 @@
   "bloco 7": {x:230, y:200},
   "bloco 7 2": {x:230, y:170},
   "fora bloco 7":{x:230,y:155},
-  "edificio das aguas": { x: 67, y: 100 },
+  "edificio das aguas": { x: 67, y: 85 },
   "entrada-eventos": { x: 305, y: 106 },
   "bloco 12": { x: 337, y: 185 },
   "quiosque": { x: 270, y: 230 },
