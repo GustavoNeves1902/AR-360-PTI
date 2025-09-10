@@ -22,6 +22,39 @@
       background-color: rgba(255,0,0,0.2); /* opcional, só para ver a área */
       cursor: pointer;
     }
+    /* Mini-mapa */
+    #miniMapa {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 500px;
+      height: 388px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      background: url('./imgs/mapa-pti.png') no-repeat center/contain;
+      z-index: 1000;
+    }
+
+    /* Marcador vermelho */
+    #marker {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background:red;
+      pointer-events: none;
+      z-index: 1001;
+    }
+
+    /* Pontos clicáveis (transparentes, só para área de clique) */
+    .ponto {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: rgba(0, 0, 255, 0.88);
+      cursor: pointer;
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
   <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
@@ -29,9 +62,23 @@
 <body>
   <div id="panorama"></div>
 
+  <div id="miniMapa">
+    <!-- Marcador vermelho -->
+    <div id="marker"></div>
+
+    <!-- Pontos clicáveis -->
+    <div class="ponto" data-scene="entrada" style="left:264px; top:40px;"></div>
+    <div class="ponto" data-scene="edificio das aguas" style="left:60px; top:94px;"></div>
+    <div class="ponto" data-scene="entrada-eventos" style="left:300px; top:100px;"></div>
+    <div class="ponto" data-scene="bloco 12" style="left:310px; top:200px;"></div>
+    <div class="ponto" data-scene="quiosque" style="left:265px; top:225px;"></div>
+    <div class="ponto" data-scene="porta lanchonete" style="left:130px; top:220px;"></div>
+
+  </div>
+
   <script>
     // Recupera a última cena visitada ou usa 'entrada' como padrão
-    const ultimaCena =  'entrada';
+    const ultimaCena = localStorage.getItem('ultimaCena') ||'entrada';
 
     const viewer = pannellum.viewer('panorama', {
       "default": {
@@ -194,11 +241,18 @@
         "entrada-eventos": {
           "title": "Auditórios",
           "panorama": "./imgs/entrada_eventos.jpg",
+          "yaw":-65,
           "hotSpots": [
             {
-              "pitch": -5, "yaw": -15,
+              "pitch": -5, "yaw": -20,
               "type": "scene",
               "text": "Seguir",
+              "sceneId": ""
+            },
+            {
+              "pitch": -5, "yaw": -80,
+              "type": "scene",
+              "text": "LabMaker",
               "sceneId": "entrada-florestan"
             },
             {
@@ -217,7 +271,7 @@
               "pitch": -5, "yaw": 0,
               "type": "scene",
               "text": "Seguir",
-              "sceneId": "divisao cesar lattes"
+              "sceneId": "divisao cesar lattes",
             },
             {
               "pitch": -18, "yaw": 180,
@@ -236,23 +290,24 @@
         },
         "divisao cesar lattes": {
           "title": "Auditórios",
-          "yaw": 180,
+          "yaw": 130,
           "panorama": "./imgs/corredor_cesar_lattes.jpg",
           "hotSpots": [
             {
-              "pitch": -5, "yaw": 175,
+              "pitch": -5, "yaw": 170,
               "type": "scene",
-              "text": "Seguir",
+              "text": "Entrar",
               "sceneId": "cesar lattes"
             },
             {
               "pitch": -18, "yaw": -95,
               "type": "scene",
               "text": "Voltar",
+              "targetYaw":180,
               "sceneId": "entrada-florestan"
             },
             {
-              "pitch": -20, "yaw": 80,
+              "pitch": -20, "yaw": 85,
               "type": "scene",
               "text": "Bloco 12 - precisa editar ainda",
               "sceneId": "#"
@@ -413,7 +468,8 @@
               "pitch": -5, "yaw":0,
               "type": "scene",
               "text": "Voltar",
-              "sceneId": "bloco 7"
+              "sceneId": "bloco 7",
+              "targetYaw":0,
             },
             {
               "pitch": -5, "yaw": -178,
@@ -432,7 +488,8 @@
               "pitch": -5, "yaw":10,
               "type": "scene",
               "text": "Entrar",
-              "sceneId": "bloco 7 2"
+              "sceneId": "bloco 7 2",
+              "targetYaw": 0
             },
             {
               "pitch": -5, "yaw":-80,
@@ -491,6 +548,53 @@
     // Salva a cena atual sempre que o usuário muda
     viewer.on('scenechange', function(sceneId) {
       localStorage.setItem('ultimaCena', sceneId);
+      updateMarker(sceneId);
+    });
+
+    // Coordenadas dos pontos no mini-mapa
+    const pontos = {
+  "entrada": { x: 270, y: 47 },
+  "onibus-aguas-eventos": { x: 270, y: 110 },
+  "blocos 8 e 9": { x: 210, y: 104 },
+  "blocos 3 e 4": { x: 125, y: 105 },
+  "onibus-eventos": {x:270, y:120},
+  "onibus-bloco7 fundos":{x:270, y:215},
+  "corredor bloco 12 quiosque":{x:270 ,y:230},
+  "quiosque bloco 7":{x:212, y:272},
+  "bloco 7": {x:212, y:238},
+  "bloco 7 2": {x:212, y:214},
+  "fora bloco 7":{x:210,y:195},
+  "edificio das aguas": { x: 67, y: 100 },
+  "entrada-eventos": { x: 305, y: 106 },
+  "bloco 12": { x: 316, y: 207 },
+  "quiosque": { x: 270, y: 230 },
+  "quiosque biblioteca lanchonete":{x:153, y:270},
+  "porta lanchonete": { x: 137, y: 225 }
+};
+
+    // Atualiza o marcador vermelho
+  function updateMarker(sceneId){
+  const pos = pontos[sceneId];
+  if(pos){
+    const marker = document.getElementById("marker");
+    const miniMapa = document.getElementById("miniMapa");
+    const scaleX = miniMapa.offsetWidth / 500; // 500 = largura do seu mini-mapa
+    const scaleY = miniMapa.offsetHeight / 388; // 380 = altura do mini-mapa
+
+    marker.style.left = pos.x * scaleX - marker.offsetWidth/2 + "px"; 
+    marker.style.top = pos.y * scaleY - marker.offsetHeight/2 + "px";
+  }
+}
+
+    updateMarker(ultimaCena);
+
+    // Clicar nos pontos para navegar
+    document.querySelectorAll(".ponto").forEach(el => {
+      el.addEventListener("click", () => {
+        const scene = el.dataset.scene;
+        viewer.loadScene(scene);
+        updateMarker(scene);
+      });
     });
 
   </script>
