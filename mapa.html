@@ -69,16 +69,17 @@
     <!-- Pontos clicáveis -->
     <div class="ponto" data-scene="entrada" style="left:264px; top:40px;"></div>
     <div class="ponto" data-scene="edificio das aguas" style="left:60px; top:80px;"></div>
-    <div class="ponto" data-scene="entrada-eventos" style="left:300px; top:100px;"></div>
+    <div class="ponto" data-scene="entrada-eventos" style="left:315px; top:88px;"></div>
     <div class="ponto" data-scene="bloco 12" style="left:330px; top:180px;"></div>
     <div class="ponto" data-scene="quiosque" style="left:265px; top:225px;"></div>
     <div class="ponto" data-scene="porta lanchonete" style="left:120px; top:220px;"></div>
+    <div class="ponto" data-scene="LabMaker" style="left:400px; top:85px;"></div>
 
   </div>
 
   <script>
     // Recupera a última cena visitada ou usa 'entrada' como padrão
-    const ultimaCena = 'entrada';
+    const ultimaCena = localStorage.getItem('ultimaCena') ||'entrada';
 
     const viewer = pannellum.viewer('panorama', {
       "default": {
@@ -118,7 +119,6 @@
               "pitch": -10, "yaw": 85,
               "type": "scene",
               "text": "Seguir",
-              "scale": 10.0,
               "scale": 5.0,
               "sceneId": "blocos 8 e 9"
             },
@@ -220,7 +220,7 @@
           ]
         },
         "onibus-bloco7 fundos": {
-          "panorama": "./imgs/bloco7fundos_quiosque.jpeg",
+          "panorama": "./imgs/bloco7fundos_quiosque.jpg",
           "yaw": 40,
           "hotSpots": [
             {
@@ -264,7 +264,7 @@
               "type": "scene",
               "text": "LabMaker",
               "scale": 5.0,
-              "sceneId": ""
+              "sceneId": "caminho LabMaker"
             },
             {
               "pitch": -18, "yaw": 80,
@@ -275,8 +275,42 @@
             }
           ]
         },
+        "caminho LabMaker": {
+          "panorama": "./imgs/caminho labmaker.jpg",
+          "yaw":-10,
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": -20,
+              "type": "scene",
+              "text": "Labmaker",
+              "scale": 5.0,
+              "sceneId": "LabMaker"
+            },
+            {
+              "pitch": -5, "yaw": -190,
+              "type": "scene",
+              "text": "Voltar",
+              "scale": 5.0,
+              "sceneId": "entrada-eventos"
+            }
+          ]
+        },
+        "LabMaker": {
+          "panorama": "./imgs/labmaker.jpg",
+          "yaw":-10,
+          "hotSpots": [
+            {
+              "pitch": -18, "yaw": 80,
+              "type": "scene",
+              "text": "Voltar",
+              "scale": 5.0,
+              "sceneId": "entrada-eventos"
+            }
+          ]
+        },
         "entrada-florestan": {
-          "panorama": "./imgs/entrada_florestan.jpeg",
+          "panorama": "./imgs/entrada_florestan.jpg",
+          "yaw":-45,
           "hotSpots": [
             {
               "pitch": -5, "yaw": 0,
@@ -324,11 +358,39 @@
             {
               "pitch": -20, "yaw": 85,
               "type": "scene",
-              "text": "Bloco 12 - precisa editar ainda",
+              "text": "Bloco 12",
+              "targetYaw":70,
+              "scale": 5.0,
+              "sceneId": "bloco 12 coffee break"
+            }
+          ]
+        },
+        "bloco 12 coffee break": {
+          "yaw": 70,
+          "panorama": "./imgs/bloco 12 coffee break.jpg",
+          "hotSpots": [
+            {
+              "pitch": -10, "yaw": -95,
+              "type": "scene",
+              "text": "Voltar",
+              "targetYaw":130,
+              "scale": 5.0,
+              "sceneId": "divisao cesar lattes"
+            },
+            {
+              "pitch": -10, "yaw": 220,
+              "type": "scene",
+              "text": "Sair",
+              "scale": 5.0,
+              "sceneId": "onibus-eventos"
+            },
+            {
+              "pitch": -10, "yaw": 70,
+              "type": "scene",
+              "text": "Bloco 12",
               "scale": 5.0,
               "sceneId": "#"
             }
-
           ]
         },
         "florestan": {
@@ -593,11 +655,17 @@
   "bloco 7 2": {x:230, y:170},
   "fora bloco 7":{x:230,y:155},
   "edificio das aguas": { x: 67, y: 85 },
-  "entrada-eventos": { x: 305, y: 106 },
+  "entrada-eventos": { x: 322, y: 95 },
   "bloco 12": { x: 337, y: 185 },
   "quiosque": { x: 270, y: 230 },
   "quiosque biblioteca lanchonete":{x:153, y:225},
-  "porta lanchonete": { x: 126, y: 225 }
+  "porta lanchonete": { x: 126, y: 225 },
+  "caminho LabMaker": { x: 370, y: 95 },
+  "LabMaker": { x: 407, y: 92 },
+  "entrada-florestan": {x: 335, y: 120},
+  "divisao cesar lattes": {x: 335, y: 110},
+  "bloco 12 coffee break": {x: 335, y: 123},
+  
 };
 
     // Atualiza o marcador vermelho
