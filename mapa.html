@@ -74,12 +74,15 @@
     <div class="ponto" data-scene="quiosque" style="left:265px; top:225px;"></div>
     <div class="ponto" data-scene="porta lanchonete" style="left:120px; top:220px;"></div>
     <div class="ponto" data-scene="Labmaker" style="left:400px; top:85px;"></div>
+    <div class="ponto" data-scene="biblioteca" style="left:120px; top:255px;"></div>
+    <div class="ponto" data-scene="bloco6" style="left:200px; top:255px;"></div>
+    <div class="ponto" data-scene="bloco5" style="left:210px; top:363px;"></div>
 
   </div>
 
   <script>
     // Recupera a última cena visitada ou usa 'entrada' como padrão
-    const ultimaCena = localStorage.getItem('ultimaCena') ||'entrada';
+    const ultimaCena = 'entrada';
 
     const viewer = pannellum.viewer('panorama', {
       "default": {
@@ -105,8 +108,9 @@
         },
 
         "onibus-aguas-eventos": {
-          "panorama": "./imgs/divisao_onibus-aguas-eventos-texto.jpg",
+          "panorama": "./imgs/onibusaguaeventos.jpg",
           "yaw":40,
+          "hfov":200,
           "hotSpots": [
             {
               "pitch": -10, "yaw": -5,
@@ -132,11 +136,11 @@
           ]
         },
         "blocos 8 e 9": {
-          "panorama": "./imgs/blocos 8 9 edificios das aguas.jpg",
-          "yaw":170,
+          "panorama": "./imgs/blocos89.jpg",
+          "yaw":0,
           "hotSpots": [
             {
-              "pitch": -10, "yaw": -8,
+              "pitch": -10, "yaw": 175,
               "type": "scene",
               "text": "Voltar",
               "targetYaw":-10,
@@ -144,45 +148,47 @@
               "sceneId": "onibus-aguas-eventos"
             },
             {
-              "pitch": -10, "yaw": 172,
+              "pitch": -10, "yaw": -2,
               "type": "scene",
               "text": "Seguir",
+              "targetYaw":0,
               "scale": 5.0,
               "sceneId": "blocos 3 e 4"
             }
           ]
         },
         "blocos 3 e 4": {
-          "panorama": "./imgs/blocos 3 4 edificio das aguas.jpeg",
+          "panorama": "./imgs/blocos34.jpg",
           "yaw":170,
           "hotSpots": [
             {
-              "pitch": -10, "yaw": -8,
+              "pitch": -10, "yaw": 175,
               "type": "scene",
               "text": "Voltar",
               "sceneId": "blocos 8 e 9",
               "scale": 5.0,
-              "targetYaw":-10
+              "targetYaw":180
             },
             {
-              "pitch": -10, "yaw": 172,
+              "pitch": -10, "yaw": -5,
               "type": "scene",
               "text": "Seguir",
               "scale": 5.0,
+              "targetYaw":0,
               "sceneId": "edificio das aguas"
             }
           ]
         },
         "edificio das aguas": {
-          "panorama": "./imgs/edificio das aguas.jpeg",
-          "yaw":170,
-          "hfov":100,
+          "panorama": "./imgs/edificiodasaguas.jpg",
+          "yaw":0,
+          "hfov":200,
           "hotSpots": [
             {
-              "pitch": -10, "yaw": -20,
+              "pitch": -10, "yaw": 180,
               "type": "scene",
               "text": "Voltar",
-              "targetYaw":-10,
+              "targetYaw":180,
               "targetHfov": 100,
               "scale": 5.0,
               "sceneId": "blocos 3 e 4"
@@ -192,11 +198,12 @@
         
 
         "onibus-eventos": {
-          "panorama": "./imgs/onibus_eventos_texto.jpg",
-          "yaw": 125,
+          "panorama": "./imgs/onibuseventos.jpg",
+          "yaw": -50,
+          "hfov": 200,
           "hotSpots": [
             {
-              "pitch": -5, "yaw": -7,
+              "pitch": -5, "yaw": -182,
               "type": "scene",
               "text": "Voltar",
               "targetYaw":170,
@@ -204,14 +211,14 @@
               "sceneId": "onibus-aguas-eventos"
             },
             {
-              "pitch": -5, "yaw": 80,
+              "pitch": -5, "yaw": -92,
               "type": "scene",
               "text": "Eventos",
               "scale": 5.0,
               "sceneId": "entrada-eventos"
             },
             {
-              "pitch": -5, "yaw": 170,
+              "pitch": -5, "yaw": -3,
               "type": "scene",
               "text": "Próximo",
               "scale": 5.0,
@@ -220,8 +227,9 @@
           ]
         },
         "onibus-bloco7 fundos": {
-          "panorama": "./imgs/bloco7fundos_quiosque.jpg",
+          "panorama": "./imgs/quiosquefundobloco7.jpg",
           "yaw": 40,
+          "hfov":200,
           "hotSpots": [
             {
               "pitch": -5, "yaw": 0,
@@ -231,9 +239,9 @@
               "sceneId": "corredor bloco 12 quiosque"
             },
             {
-              "pitch": -5, "yaw": 80,
+              "pitch": -5, "yaw": 90,
               "type": "scene",
-              "text": "Voltar",
+              "text": "Fundo bloco 7",
               "scale": 5.0,
               "sceneId": "fora bloco 7"
             },
@@ -241,7 +249,7 @@
               "pitch": -5, "yaw": 180,
               "type": "scene",
               "text": "Voltar",
-              "targetYaw":-10,
+              "targetYaw":220,
               "scale": 5.0,
               "sceneId": "onibus-eventos"
             }
@@ -251,6 +259,7 @@
         "entrada-eventos": {
           "panorama": "./imgs/entrada_eventos.jpg",
           "yaw":-65,
+          "hfov":200,
           "hotSpots": [
             {
               "pitch": -5, "yaw": -20,
@@ -450,45 +459,140 @@
         },
         "quiosque": {
           "yaw": 0,
-          "panorama": "./imgs/centro quiosque.jpg",
+          "panorama": "./imgs/centroquiosque.jpg",
           "hotSpots": [
             {
-              "pitch": -5, "yaw":0,
+              "pitch": -5, "yaw":-10,
               "type": "scene",
               "text": "Seguir",
               "scale": 5.0,
               "sceneId": "quiosque bloco 7"
             },
             {
-              "pitch": -15, "yaw": 120,
+              "pitch": -15, "yaw": 80,
               "type": "scene",
               "text": "Voltar",
               "scale": 5.0,
               "sceneId": "corredor bloco 12 quiosque",
               "targetYaw":0,
+            },
+            {
+              "pitch": -10, "yaw": 270,
+              "type": "scene",
+              "text": "Seguir",
+              "scale": 5.0,
+              "sceneId": "bloco10bloco6",
             }
           ]
         },
-        "bloco 12": {
-          "yaw": -180,
-          "panorama": "./imgs/bloco 11 bloco 12.jpeg",
+        "bloco10bloco6": {
+          "yaw": 225,
+          "hfov":200,
+          "panorama": "./imgs/bloco10bloco6.jpg",
           "hotSpots": [
             {
-              "pitch": -5, "yaw": -3,
+              "pitch": -5, "yaw":-92,
               "type": "scene",
-              "text": "Bloco 11",
+              "text": "bloco 5",
               "scale": 5.0,
-              "sceneId": ""
+              "targetYaw":0,
+              "sceneId": "bloco5fundos"
             },
             {
-              "pitch": -5, "yaw": -175,
+              "pitch": -5, "yaw":-185,
               "type": "scene",
-              "text": "Bloco 12",
+              "text": "bloco 10",
               "scale": 5.0,
-              "sceneId": "corredor bloco 12"
+              "sceneId": "bloco10"
             },
             {
-              "pitch": -5, "yaw": 100,
+              "pitch": -5, "yaw":-265,
+              "type": "scene",
+              "text": "quiosque",
+              "scale": 5.0,
+              "sceneId": "quiosque"
+            },
+            {
+              "pitch": -10, "yaw":-80,
+              "type": "scene",
+              "text": "bloco 6",
+              "scale": 5.0,
+              "sceneId": "bloco6"
+            },
+            
+          ]
+        },
+        "bloco10": {
+          "yaw": 0,
+          "hfov":300,
+          "panorama": "./imgs/bloco10.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":180,
+              "type": "scene",
+              "text": "Sair",
+              "scale": 5.0,
+              "sceneId": "bloco10bloco6"
+            },
+          ]
+        },
+        "bloco6": {
+          "yaw": 0,
+          "hfov":200,
+          "panorama": "./imgs/bloco6.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":90,
+              "type": "scene",
+              "text": "Biblioteca",
+              "targetYaw":180,
+              "scale": 5.0,
+              "sceneId": "caminhotorto"
+            },
+            {
+              "pitch": -5, "yaw":-90,
+              "type": "scene",
+              "text": "bloco 10",
+              "scale": 5.0,
+              "sceneId": "bloco10bloco6"
+            },
+          ]
+        },
+        "caminhotorto": {
+          "yaw": 0,
+          "hfov":200,
+          "panorama": "./imgs/bloco6caminhotorto.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":-90,
+              "type": "scene",
+              "text": "Descer",
+              "scale": 5.0,
+              "sceneId": "quiosquecaminhotorto"
+            },
+            {
+              "pitch": -5, "yaw":0,
+              "type": "scene",
+              "text": "bloco 6",
+              "scale": 5.0,
+              "sceneId": "bloco6"
+            },
+            {
+              "pitch": -5, "yaw":175,
+              "type": "scene",
+              "text": "Biblioteca",
+              "scale": 5.0,
+              "sceneId": "biblioteca"
+            },
+          ]
+        },
+        "bloco 12": {
+          "yaw": -100,
+          "hfov":200,
+          "panorama": "./imgs/bloco1112.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 190,
               "type": "scene",
               "text": "Sair",
               "scale": 5.0,
@@ -498,8 +602,8 @@
         },
         "quiosque bloco 7": {
           "yaw": -140,
-          "hvof":600,
-          "panorama": "./imgs/quiosque bloco 7.jpg",
+          "hvof":200,
+          "panorama": "./imgs/quiosquebloco 7.jpg",
           "hotSpots": [
             {
               "pitch": -5, "yaw": -3,
@@ -518,6 +622,35 @@
             },
             {
               "pitch": -10, "yaw": -185,
+              "type": "scene",
+              "text": "Seguir",
+              "scale": 5.0,
+              "sceneId": "quiosquecaminhotorto"
+            }
+          ]
+        },
+        "quiosquecaminhotorto": {
+          "yaw": -15,
+          "hvof":600,
+          "panorama": "./imgs/subidatorta.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw": 170,
+              "type": "scene",
+              "text": "Voltar",
+              "sceneId": "quiosque",
+              "scale": 5.0,
+              "targetYaw":120,
+            },
+            {
+              "pitch": 0, "yaw":-50,
+              "type": "scene",
+              "text": "Bloco 6",
+              "scale": 5.0,
+              "sceneId": "caminhotorto"
+            },
+            {
+              "pitch": -5, "yaw": 0,
               "type": "scene",
               "text": "Seguir",
               "scale": 5.0,
@@ -610,9 +743,9 @@
               "pitch": -5, "yaw":-190,
               "type": "scene",
               "text": "voltar",
-              "targetYaw": 0,
+              "targetYaw": 180,
               "scale": 5.0,
-              "sceneId": "quiosque bloco 7"
+              "sceneId": "quiosquecaminhotorto"
             }
 
           ]
@@ -627,9 +760,66 @@
               "targetYaw":180,
               "scale": 5.0,
               "sceneId": "quiosque biblioteca lanchonete"
+            },
+            {
+              "pitch": -5, "yaw":-75,
+              "type": "scene",
+              "text": "Biblioteca",
+              "targetYaw":0,
+              "scale": 5.0,
+              "sceneId": "biblioteca"
+            }
+          ]
+        },
+        "biblioteca": {
+          "panorama": "./imgs/biblioteca.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":200,
+              "type": "scene",
+              "text": "Lanchonete",
+              "targetYaw":0,
+              "scale": 5.0,
+              "sceneId": "porta lanchonete"
+            }
+          ]
+        },
+        "bloco5": {
+          "hfov":200,
+          "panorama": "./imgs/bloco5.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":90,
+              "type": "scene",
+              "text": "Corredor",
+              "scale": 5.0,
+              "sceneId": "bloco5fundos"
+            }
+          ]
+        },
+        "bloco5fundos": {
+          "yaw":50,
+          "hfov":200,
+          "panorama": "./imgs/bloco5fundos.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":65,
+              "type": "scene",
+              "text": "Seguir",
+              "targetYaw":90,
+              "scale": 5.0,
+              "sceneId": "bloco10bloco6"
+            },
+            {
+              "pitch": -5, "yaw":-20,
+              "type": "scene",
+              "text": "BLoco 5",
+              "scale": 5.0,
+              "sceneId": "bloco5"
             }
           ]
         }
+
 
 
       }
@@ -665,6 +855,12 @@
   "entrada-florestan": {x: 335, y: 120},
   "divisao cesar lattes": {x: 335, y: 110},
   "bloco 12 coffee break": {x: 335, y: 123},
+  "biblioteca": {x: 130, y: 260},
+  "bloco6": {x: 210, y: 260},
+  "bloco10bloco6": {x: 275, y: 250},
+  "bloco10": {x: 340, y: 250},
+  "bloco5fundos": {x: 275, y: 370},
+  "bloco5": {x: 216, y: 368},
   
 };
 
