@@ -82,8 +82,7 @@
 
   <script>
     // Recupera a última cena visitada ou usa 'entrada' como padrão
-    const ultimaCena = 'entrada';
-
+    const ultimaCena = localStorage.getItem('ultimaCena') ||'entrada';
     const viewer = pannellum.viewer('panorama', {
       "default": {
         "firstScene": ultimaCena,
@@ -262,7 +261,7 @@
           "hfov":200,
           "hotSpots": [
             {
-              "pitch": -5, "yaw": -20,
+              "pitch": -5, "yaw": -0,
               "type": "scene",
               "text": "Seguir",
               "scale": 5.0,
@@ -398,17 +397,17 @@
               "type": "scene",
               "text": "Bloco 12",
               "scale": 5.0,
-              "sceneId": "#"
+              "sceneId": "bloco 12"
             }
           ]
         },
         "florestan": {
           "panorama": "imgs/florestan.jpg",
-          "yaw":230,
+          "yaw":0,
           "hfov":800,
           "hotSpots": [
             {
-              "pitch": -5, "yaw": 0,
+              "pitch": -5, "yaw": 175,
               "type": "scene",
               "text": "Voltar",
               "scale": 5.0,
@@ -417,7 +416,7 @@
           ]
         },
         "cesar lattes": {
-          "panorama": "imgs/Cesar_lattes.jpeg",
+          "panorama": "imgs/cesarlattes.jpg",
           "hotSpots": [
             {
               "pitch": -5, "yaw": 180,
@@ -534,6 +533,13 @@
               "scale": 5.0,
               "sceneId": "bloco10bloco6"
             },
+            {
+              "pitch": -5, "yaw":290,
+              "type": "scene",
+              "text": "Bloco 12",
+              "scale": 5.0,
+              "sceneId": "bloco 12"
+            },
           ]
         },
         "bloco6": {
@@ -592,21 +598,28 @@
           "panorama": "imgs/bloco1112.jpg",
           "hotSpots": [
             {
+              "pitch": -5, "yaw": 90,
+              "type": "scene",
+              "text": "Seguir",
+              "scale": 5.0,
+              "sceneId": "bloco10"
+            },
+            {
               "pitch": -5, "yaw": 190,
               "type": "scene",
               "text": "Sair",
               "scale": 5.0,
               "sceneId": "corredor bloco 12 quiosque"
-            }
+            },
           ]
         },
         "quiosque bloco 7": {
-          "yaw": -140,
+          "yaw": 40,
           "hvof":200,
           "panorama": "imgs/quiosquebloco 7.jpg",
           "hotSpots": [
             {
-              "pitch": -5, "yaw": -3,
+              "pitch": -10, "yaw": -185,
               "type": "scene",
               "text": "Voltar",
               "sceneId": "quiosque",
@@ -614,14 +627,7 @@
               "targetYaw":120,
             },
             {
-              "pitch": -20, "yaw": -95,
-              "type": "scene",
-              "text": "Bloco 7",
-              "scale": 5.0,
-              "sceneId": "bloco 7"
-            },
-            {
-              "pitch": -10, "yaw": -185,
+              "pitch": -5, "yaw": -3,
               "type": "scene",
               "text": "Seguir",
               "scale": 5.0,
@@ -640,7 +646,7 @@
               "text": "Voltar",
               "sceneId": "quiosque bloco 7",
               "scale": 5.0,
-              "targetYaw":120,
+              "targetYaw":180,
             },
             {
               "pitch": 0, "yaw":-50,
@@ -658,59 +664,10 @@
             }
           ]
         },
-        "bloco 7": {
-          "yaw": -170,
-          "panorama": "imgs/bloco 7 fundos.jpg",
-          "hotSpots": [
-            {
-              "pitch": -5, "yaw":-10,
-              "type": "scene",
-              "text": "Voltar",
-              "scale": 5.0,
-              "sceneId": "quiosque bloco 7"
-            },
-            {
-              "pitch": -5, "yaw": -178,
-              "type": "scene",
-              "text": "Próximo",
-              "scale": 5.0,
-              "sceneId": "bloco 7 2"
-            }
-          ]
-        },
-        "bloco 7 2": {
-          "yaw": -170,
-          "panorama": "imgs/Bloco7.jpg",
-          "hotSpots": [
-            {
-              "pitch": -5, "yaw":0,
-              "type": "scene",
-              "text": "Voltar",
-              "sceneId": "bloco 7",
-              "scale": 5.0,
-              "targetYaw":0,
-            },
-            {
-              "pitch": -5, "yaw": -178,
-              "type": "scene",
-              "text": "Sair",
-              "scale": 5.0,
-              "sceneId": "fora bloco 7"
-            }
-          ]
-        },
         "fora bloco 7": {
           "yaw": 10,
           "panorama": "imgs/fora bloco 7.jpg",
           "hotSpots": [
-            {
-              "pitch": -5, "yaw":10,
-              "type": "scene",
-              "text": "Entrar",
-              "scale": 5.0,
-              "sceneId": "bloco 7 2",
-              "targetYaw": 0
-            },
             {
               "pitch": -5, "yaw":-80,
               "type": "scene",
