@@ -88,7 +88,7 @@
         "firstScene": ultimaCena,
         "sceneFadeDuration": 1000,
         "autoLoad": true,
-        "hotSpotDebug": true,   // 👈 muda para false quando finalizar
+        "hotSpotDebug": false,   // 👈 muda para false quando finalizar
         "hfov": 100
       },
 
@@ -587,9 +587,37 @@
             {
               "pitch": -5, "yaw":175,
               "type": "scene",
+              "text": "Seguir",
+              "scale": 5.0,
+              "sceneId": "caminhotortobiblioteca"
+            },
+          ]
+        },
+        "caminhotortobiblioteca": {
+          "yaw": 95,
+          "hfov":200,
+          "panorama": "imgs/caminhotortobiblioteca.jpg",
+          "hotSpots": [
+            {
+              "pitch": -5, "yaw":90,
+              "type": "scene",
               "text": "Biblioteca",
               "scale": 5.0,
               "sceneId": "biblioteca"
+            },
+            {
+              "pitch": -5, "yaw":180,
+              "type": "scene",
+              "text": "Descer",
+              "scale": 5.0,
+              "sceneId": "quiosque biblioteca lanchonete"
+            },
+            {
+              "pitch": -5, "yaw":-90,
+              "type": "scene",
+              "text": "Voltar",
+              "scale": 5.0,
+              "sceneId": "caminhotorto"
             },
           ]
         },
@@ -661,6 +689,7 @@
               "type": "scene",
               "text": "Seguir",
               "scale": 5.0,
+              "targetYaw":180,
               "sceneId": "quiosque biblioteca lanchonete"
             }
           ]
@@ -679,26 +708,26 @@
           ]
         },
         "quiosque biblioteca lanchonete": {
-          "yaw": -55,
-          "hvof":100,
-          "panorama": "imgs/restaurante biblioteca.jpeg",
+          "yaw": 135,
+          "hvof":200,
+          "panorama": "imgs/restaurante biblioteca.jpg",
           "hotSpots": [
             {
-              "pitch": -5, "yaw":-10,
+              "pitch": -5, "yaw":180,
               "type": "scene",
               "text": "Lanchonete",
               "scale": 5.0,
               "sceneId": "porta lanchonete"
             },
             {
-              "pitch": -5, "yaw":-100,
+              "pitch": -5, "yaw":90,
               "type": "scene",
-              "text": "Biblioteca precisa mexer",
+              "text": "Subir",
               "scale": 5.0,
-              "sceneId": ""
+              "sceneId": "caminhotortobiblioteca"
             },
             {
-              "pitch": -5, "yaw":-190,
+              "pitch": -5, "yaw":0,
               "type": "scene",
               "text": "voltar",
               "targetYaw": 180,
@@ -820,6 +849,7 @@
   "bloco10": {x: 340, y: 250},
   "bloco5fundos": {x: 275, y: 370},
   "bloco5": {x: 216, y: 368},
+  "caminhotortobiblioteca": {x: 150, y: 260},
   
 };
 
